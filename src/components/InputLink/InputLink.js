@@ -1,9 +1,9 @@
 import React from "react";
 import "./InputlLink.css";
 
-const InputLink = () => {
+const InputLink = ({ onInputChange, onSubmitBtn }) => {
   return (
-    <div className="  w-2/5 px-10 ">
+    <div className=" mt-5  sm:w-3/7 lg:w-2/5  ">
       <p className=" text-white text-lg"> Roth, your current rank is...</p>
       <p className=" text-white text-xl"> #5</p>
       <p className=" my-4">
@@ -14,8 +14,14 @@ const InputLink = () => {
           type="text"
           placeholder="Input link here..."
           className=" w-3/4 h-10 px-4 "
+          onChange={onInputChange}
         />
-        <button className=" w-1/4 h-10   bg-blue-500">Detect</button>
+        <button
+          onClick={onSubmitBtn}
+          className=" w-1/4 h-10 cursor-pointer   bg-blue-500 hover:text-white"
+        >
+          Detect
+        </button>
       </div>
     </div>
   );
