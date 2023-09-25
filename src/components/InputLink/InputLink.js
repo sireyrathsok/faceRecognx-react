@@ -2,9 +2,9 @@ import React from "react";
 import "./InputlLink.css";
 import FaceRecognition from "../FaceRecognition/FaceRecognition";
 
-const InputLink = ({ onInputChange, onSubmitBtn, IMAGE_URL }) => {
+const InputLink = ({ onInputChange, onSubmitBtn, imgUrl }) => {
   return (
-    <div className=" mt-5 mb-10  sm:w-3/7 lg:w-2/5   ">
+    <div className=" mt-5 mb-10  sm:w-3/4  lg:w-3/6 lg  xl:w-2/5  ">
       <p className=" text-white text-lg"> Roth, your current rank is...</p>
       <p className=" text-white text-xl"> #5</p>
       <p className=" my-4">
@@ -26,7 +26,7 @@ const InputLink = ({ onInputChange, onSubmitBtn, IMAGE_URL }) => {
           </button>
         </div>
         <div className=" flex justify-center">
-          <FaceRecognition IMAGE_URL={IMAGE_URL} />
+          <FaceRecognition imgUrl={imgUrl} />
         </div>
       </div>
     </div>
