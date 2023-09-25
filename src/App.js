@@ -61,7 +61,6 @@ class App extends Component {
       route: "signIn",
       haveAcc: "yes",
       userSignedIn: "yes",
-      logInSuccessful: "no",
     };
   }
 
@@ -74,7 +73,7 @@ class App extends Component {
   };
 
   onSignInClickedAndRegisterBtnClicked = () => {
-    this.setState({ route: "home", logInSuccessful: "yes" });
+    this.setState({ route: "home" });
   };
 
   onInputChange = (event) => {
