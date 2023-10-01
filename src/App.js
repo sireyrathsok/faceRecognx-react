@@ -98,28 +98,16 @@ class App extends Component {
       .then((result) => console.log("result", result))
       .catch((error) => console.log("error", error));
   };
+  // componentDidMount() {
+  //   fetch("http://localhost:3001")
+  //     .then((res) => res.json())
+  //     .then(console.log);
+  // }
 
   render() {
     return (
       <div className="App  pt-7  mx-10  ">
         <ParticlesBg type="circle" bg={true} />
-        {/* <Navigation onSignOutClicked={this.onSignOutClicked} /> */}
-
-        {/* {this.state.route === "signIn" ? (
-          this.state.haveAcc ? (
-            <SignIn singInBtnClick={this.onSignInClicked} />
-          ) : (
-            <Register registerOnClicked={this.registerOnClicked} />
-          )
-        ) : (
-          <div className="flex justify-center">
-            <InputLink
-              onInputChange={this.onInputChange}
-              onSubmitBtn={this.onSubmitBtn}
-              imgUrl={this.state.imgUrl}
-            />
-          </div>
-        )} */}
         {this.state.route === "signIn" ? (
           this.state.haveAcc === "yes" ? (
             <SignIn
