@@ -90,19 +90,10 @@ class App extends Component {
         "/outputs",
       returnClarifiaRequestOption(this.state.input)
     )
-      // .then(function (response) {
-      //   console.log(resp);
-      //   // return resp.outputs[0].data.regions[0].data.concepts[0];
-      // })
       .then((response) => console.log("response", response.json()))
       .then((result) => console.log("result", result))
       .catch((error) => console.log("error", error));
   };
-  // componentDidMount() {
-  //   fetch("http://localhost:3001")
-  //     .then((res) => res.json())
-  //     .then(console.log);
-  // }
 
   render() {
     return (
@@ -135,32 +126,6 @@ class App extends Component {
             </div>
           </div>
         )}
-
-        {/* {this.state.route === "signIn" ? (
-          this.state.haveAcc === "yes" ? (
-            <SignIn
-              onSignInClicked={this.onSignInClickedAndRegisterBtnClicked}
-              userDontHaveAcc={this.userDontHaveAcc}
-            />
-          ) : (
-            <Register
-              route={this.route}
-              haveAcc={this.haveAcc}
-              changeRoute={this.onSignInClickedAndRegisterBtnClicked}
-            />
-          )
-        ) : (
-          <div>
-            <NavBar onSignOutClicked={this.onSignOutClicked} />
-            <div className="flex justify-center">
-              <InputLink
-                onInputChange={this.onInputChange}
-                onSubmitBtn={this.onSubmitBtn}
-                imgUrl={this.state.imgUrl}
-              />
-            </div>
-          </div>
-        )} */}
       </div>
     );
   }

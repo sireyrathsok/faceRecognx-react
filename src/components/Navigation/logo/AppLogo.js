@@ -4,10 +4,10 @@ import "./AppLogo.css";
 
 const AppLogo = () => {
   return (
-    <Tilt className=" Tilt h-36 w-36 mt-2   shadow-md">
+    <Tilt className=" Tilt h-32 w-32 rounded-sm shadow-md">
       <div>
         <img
-          className=" w-32 h-32 pt-5 pl-4 "
+          className=" w-28 h-28 pt-4 pl-4 "
           alt="logo"
           src={require("./brain.png")}
         />

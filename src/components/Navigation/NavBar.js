@@ -3,7 +3,7 @@ import AppLogo from "./logo/AppLogo";
 
 const NavBar = ({ switchRouteToSignIn }) => {
   return (
-    <div className=" flex justify-between">
+    <div className=" flex justify-between sticky top-0 z-50 mt-2">
       <AppLogo />
       <button
         onClick={switchRouteToSignIn}
