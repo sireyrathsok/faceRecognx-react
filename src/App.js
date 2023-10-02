@@ -61,8 +61,29 @@ class App extends Component {
       route: "signIn",
       haveAcc: "true",
       userSignedIn: "yes",
+      user: {
+        id: "",
+        username: "",
+        email: "",
+        password: "",
+        entries: 0,
+        joined: "",
+      },
     };
   }
+
+  loadUser = (userInfo) => {
+    this.setState({
+      user: {
+        id: userInfo.id,
+        username: userInfo.username,
+        email: userInfo.email,
+        password: userInfo.password,
+        entries: 0,
+        joined: userInfo.joined,
+      },
+    });
+  };
 
   switchRouteToSignIn = () => {
     this.setState({ route: "signIn", haveAcc: "yes" });
@@ -102,6 +123,7 @@ class App extends Component {
         {this.state.route === "signIn" ? (
           this.state.haveAcc === "false" ? (
             <Register
+              loadUser={this.loadUser}
               switchRouteToSignIn={this.switchRouteToSignIn}
               changeRoute={this.switchRouteToRoot}
             />

@@ -45,9 +45,13 @@ class Register extends React.Component {
         email: this.state.regEmail,
         password: this.state.regPassword,
       }), // body data type must match "Content-Type" header
-    });
-    this.props.changeRoute("home");
-    console.log(this.state);
+    })
+      .then((response) => response.json())
+      .then((user) => {
+        this.props.changeRoute("home");
+      });
+
+    // console.log(this.state);
   };
 
   render() {
