@@ -31,14 +31,17 @@ class SignIn extends React.Component {
         email: this.state.emailOnSignIn,
         password: this.state.passOnSignIn,
       }), // body data type must match "Content-Type" header
-    });
-    this.props.onSignInClicked("home");
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data === "success") {
+          this.props.switchRouteToRoot("home");
+        } else alert("try again honey..prolly wrong pass or email..🤔");
+      });
     // parses JSON response into native JavaScript objects
   };
 
   render() {
-    const { userDontHaveAcc } = this.props;
-
     return (
       <section className=" ">
         <div className="flex flex-col items-center justify-center px-6 mx-auto md:h-screen lg:py-0">
@@ -111,7 +114,7 @@ class SignIn extends React.Component {
                 <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Dont have an account yet?{" "}
                   <div
-                    onClick={userDontHaveAcc}
+                    onClick={this.props.switchRouteToRegister}
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Register

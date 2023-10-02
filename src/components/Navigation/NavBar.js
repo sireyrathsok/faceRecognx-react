@@ -1,12 +1,12 @@
 import React from "react";
 import AppLogo from "./logo/AppLogo";
 
-const NavBar = ({ onSignOutClicked }) => {
+const NavBar = ({ switchRouteToSignIn }) => {
   return (
     <div className=" flex justify-between">
       <AppLogo />
       <button
-        onClick={onSignOutClicked}
+        onClick={switchRouteToSignIn}
         className=" bg-blue-500 hover:bg-blue-700 px-3 h-10 rounded-lg text-white py-2 mb-24"
       >
         Sign Out

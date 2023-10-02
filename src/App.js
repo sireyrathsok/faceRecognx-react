@@ -59,20 +59,20 @@ class App extends Component {
       imgUrl:
         "https://i.itworldcanada.com/wp-content/uploads/2020/06/GettyImages-1148006029.jpg",
       route: "signIn",
-      haveAcc: "yes",
+      haveAcc: "true",
       userSignedIn: "yes",
     };
   }
 
-  userDontHaveAcc = () => {
-    this.setState({ haveAcc: false });
+  switchRouteToSignIn = () => {
+    this.setState({ route: "signIn", haveAcc: "yes" });
   };
 
-  onSignOutClicked = () => {
-    this.setState({ route: "signIn" });
+  switchRouteToRegister = () => {
+    this.setState({ haveAcc: "false" });
   };
 
-  onSignInClickedAndRegisterBtnClicked = () => {
+  switchRouteToRoot = () => {
     this.setState({ route: "home" });
   };
 
@@ -109,6 +109,34 @@ class App extends Component {
       <div className="App  pt-7  mx-10  ">
         <ParticlesBg type="circle" bg={true} />
         {this.state.route === "signIn" ? (
+          this.state.haveAcc === "false" ? (
+            <Register
+              switchRouteToSignIn={this.switchRouteToSignIn}
+              changeRoute={this.switchRouteToRoot}
+            />
+          ) : (
+            // onSignInClicked={this.onSignInClickedAndRegisterBtnClicked}
+            // userDontHaveAcc={this.userDontHaveAcc}
+
+            <SignIn
+              switchRouteToRegister={this.switchRouteToRegister}
+              switchRouteToRoot={this.switchRouteToRoot}
+            />
+          )
+        ) : (
+          <div>
+            <NavBar switchRouteToSignIn={this.switchRouteToSignIn} />
+            <div className="flex justify-center">
+              <InputLink
+                onInputChange={this.onInputChange}
+                onSubmitBtn={this.onSubmitBtn}
+                imgUrl={this.state.imgUrl}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* {this.state.route === "signIn" ? (
           this.state.haveAcc === "yes" ? (
             <SignIn
               onSignInClicked={this.onSignInClickedAndRegisterBtnClicked}
@@ -116,7 +144,9 @@ class App extends Component {
             />
           ) : (
             <Register
-              userClickedRegister={this.onSignInClickedAndRegisterBtnClicked}
+              route={this.route}
+              haveAcc={this.haveAcc}
+              changeRoute={this.onSignInClickedAndRegisterBtnClicked}
             />
           )
         ) : (
@@ -130,7 +160,7 @@ class App extends Component {
               />
             </div>
           </div>
-        )}
+        )} */}
       </div>
     );
   }
